@@ -17,12 +17,12 @@ alias x="exit"
 alias neofetch="fastfetch"
 
 # File aliases
-alias src="source ~/.bashrc"
-alias bashrc="nvim ~/.bashrc"
+alias src="source $HOME/.bashrc"
+alias bashrc="nvim $HOME/.bashrc"
 
 # Machine specific aliases
-alias update="sudo /home/ghaxz/.local/bin/update.sh"
-alias chad="java -jar ~/JChad/JChad-client.jar"
+alias update="sudo $HOME/.local/bin/update.sh"
+alias chad="java -jar $HOME/JChad/JChad-client.jar"
 
 #############
 # Functions #
