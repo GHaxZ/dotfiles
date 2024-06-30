@@ -8,6 +8,7 @@ return {
 			bash = { "shellcheck" },
 			c = { "cpplint" },
 			cpp = { "cpplint" },
+			go = { "revive" },
 			java = { "checkstyle" },
 			javascript = { "eslint_d" },
 			lua = { "selene" },

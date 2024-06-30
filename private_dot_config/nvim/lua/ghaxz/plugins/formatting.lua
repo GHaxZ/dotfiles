@@ -10,6 +10,7 @@ return {
 				c = { "clang-format" },
 				cpp = { "clang-format" },
 				css = { "prettier" },
+				go = { "gofumpt" },
 				html = { "prettier" },
 				java = { "clang-format" },
 				javascript = { "prettier" },

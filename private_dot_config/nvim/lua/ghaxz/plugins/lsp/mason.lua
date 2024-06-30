@@ -22,13 +22,13 @@ return {
 				"cmake", -- Makefiles
 				"cssls", -- CSS
 				"dockerls", -- Dockerfiles
+				"gopls", -- Go
 				"html", -- Haskell (just kidding, it's obvious)
 				"jsonls", -- JSON
 				"jdtls", -- Java
 				"tsserver", -- JavaScript and TypeScript
 				"lua_ls", -- lua
 				"pyright", -- Python
-				"rust_analyzer", -- Rust
 				"taplo", -- TOML
 				"yamlls", -- YAML
 			},
@@ -47,6 +47,8 @@ return {
 					"selene",
 					"eslint_d",
 					"pylint",
+					"gofumpt",
+					"revive",
 				},
 			}),
 		})

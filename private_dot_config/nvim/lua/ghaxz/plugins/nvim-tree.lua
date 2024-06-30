@@ -5,6 +5,15 @@ return {
 	config = function()
 		local nvimtree = require("nvim-tree")
 
+		vim.api.nvim_create_autocmd("BufEnter", {
+			pattern = "*",
+			callback = function()
+				if vim.bo.buftype == "" then
+					vim.cmd("NvimTreeClose")
+				end
+			end,
+		})
+
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 
