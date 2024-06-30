@@ -5,6 +5,7 @@ return {
 	config = function()
 		local nvimtree = require("nvim-tree")
 
+		-- This closes the tree as soon as a file buffer is opened
 		vim.api.nvim_create_autocmd("BufEnter", {
 			pattern = "*",
 			callback = function()

@@ -15,6 +15,9 @@ alias x="exit"
 
 # Program aliases
 alias neofetch="fastfetch"
+alias v="nvim"
+alias ls="eza --color=always --git --icons=always" 
+eval $(thefuck --alias)
 
 # File aliases
 alias src="source $HOME/.bashrc"
