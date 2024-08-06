@@ -26,7 +26,7 @@
 
 - ##### [cpuinfo.sh](https://github.com/GHaxZ/dotfiles/blob/master/scripts/cpuinfo.sh), [raminfo.sh](https://github.com/GHaxZ/dotfiles/blob/master/scripts/raminfo.sh), [batteryinfo.sh](https://github.com/GHaxZ/dotfiles/blob/master/scripts/batteryinfo.sh) - Display system status in a nice way
 - ##### [cheat.sh](https://github.com/GHaxZ/dotfiles/blob/master/scripts/cheat.sh) - Integrate the community driven [cheat.sh knowledgebase](https://cheat.sh/) into tmux
-- ##### [update.sh](https://github.com/GHaxZ/dotfiles/blob/master/scripts/update.sh) - A neat little Linux system update script (currently openSUSE Tumbleweed only)
+- ##### [update.sh](https://github.com/GHaxZ/dotfiles/blob/master/scripts/update.sh) - A neat little Linux system update script (currently openSUSE Tumbleweed only, can be easily modified for other distributions)
 
 #### _... and old configurations I used in the past_
 
@@ -43,7 +43,7 @@
 
 ```
 > [!IMPORTANT]  
-> This script currently only works on openSUSE. To make it work on other distributions, clone this repository and change the config values at the top of the script.
+> This script currently only works on openSUSE. It can be easily modifed to work on other distributions, by cloning this repository and changing the config values at the top.
 
 <br>
 
