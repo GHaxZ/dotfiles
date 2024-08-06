@@ -34,6 +34,21 @@
 
 ## Installation
 
+### Automatic installation
+#### Install all necessarry packages + dotfiles with one script
+
+```
+
+ curl -s https://raw.githubusercontent.com/GHaxZ/dotfiles/master/setup.sh | sudo bash
+
+```
+> [!IMPORTANT]  
+> This script currently only works on openSUSE. To make it work on other distributions, clone this repository and change the config values at the top of the script.
+
+<br>
+
+### Manual installation
+#### Only install the dotfiles
 Prerequisites:
 
 - [git](https://git-scm.com/)
