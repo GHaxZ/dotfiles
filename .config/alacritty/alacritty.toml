@@ -1,0 +1,19 @@
+import = ["~/.config/alacritty/themes/kanagawa_wave.toml"]
+
+[window]
+# opacity = 0.95
+padding = { x = 10, y = 10 }
+dynamic_title = true
+startup_mode = "Windowed"
+
+[cursor]
+style = { shape = "Beam", blinking = "Never" }
+
+[keyboard]
+bindings = [
+  { key = "F11", action = "ToggleMaximized" },
+  { key = "F11", mods = "Control", action = "ToggleFullscreen" },
+]
+
+[env]
+TERM = "xterm-256color"

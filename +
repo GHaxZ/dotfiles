@@ -1,0 +1,70 @@
+#!/bin/bash
+
+##########################################################################################
+# Configuration (these values depend on the operating systems, change these accordingly) #
+##########################################################################################
+INSTALL_COMMAND="zypper in"
+
+####################################
+# Helper functions and definitions #
+####################################
+
+# Color definitions
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+print_color() {
+  local color="$1"
+  local message="$2"
+
+  echo -e "${color}${message}${NC}"
+}
+
+# Exit the program with an message and exit code 1
+exit_error() {
+  local message="$1"
+  echo "$message" 1>&2
+  exit 1
+}
+
+#########################################################
+# Constant values (probably don't need to change those) #
+#########################################################
+PROGRAMS="git stow alacritty fastfetch neovim tmux zsh bat eza zoxide"
+
+##################
+# Startup checks #
+##################
+
+# Check if script is ran as root
+if [ "$(id -u)" != "0" ]; then
+  exit_error "This script must be run as root (sudo)."
+fi
+
+
+#################################
+# Install all required programs #
+#################################
+
+print_color $CYAN "--- Installing programs ---"
+print_color $GREEN "Installing system packages ..."
+$INSTALL_COMMAND $PROGRAMS
+
+# Install oh-my-posh
+print_color $GREEN "Installing oh-my-posh ..."
+curl -s https://ohmyposh.dev/install.sh | bash -s
+
+# Install spicetify
+print_color $GREEN "Installing spicetify-cli"
+curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+
+# Installing oh-my-zsh
+echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Clone the dotfiles
+if ! [ -x "$(command -v git)" ]; then
+  exit_error "git command not found, the script failed installing it previously"
+fi
