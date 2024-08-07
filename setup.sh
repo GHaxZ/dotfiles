@@ -106,8 +106,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 print_color $CYAN "--- Setting up tmux ---"
 
 print_color $GREEN "Setting up tpm ..."
-if git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm; then 
-  tmux source ~/.tmux.conf
+if git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm; then 
+  tmux source ~/.config/tmux/tmux.conf
 else
   print_error "Failed setting up tpm."
 fi
