@@ -1,0 +1,29 @@
+" Set leader key
+let mapleader = " "
+
+" Use system clipboard
+set clipboard+=unnamed
+
+" Remap jk to ESC
+inoremap jk <Esc>
+
+" Search file
+nmap <Leader>ff :action GotoFile<CR>
+
+" Search string
+nmap <Leader>fs :action FindInPath<CR>
+
+" View quick-fixes
+nmap <Leader>ca :action ShowIntentionActions<CR>
+
+" Close current tab
+nmap <Leader>tx :action CloseEditor<CR>
+
+" Next tab
+nmap <Leader>tn :action NextTab<CR>
+
+" Previous tab
+nmap <Leader>tp :action PreviousTab<CR>
+
+" Rename element
+nmap <Leader>rn :action RenameElement<CR>

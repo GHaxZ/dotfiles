@@ -1,0 +1,25 @@
+import = ["~/.config/alacritty/themes/kanagawa_wave.toml"]
+
+[font]
+normal = { family = "JetBrains Mono" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
+bold_italic = { family = "JetBrains Mono", style = "Bold Italic" }
+size = 12
+
+[window]
+padding = { x = 10, y = 10 }
+dynamic_title = true
+startup_mode = "Windowed"
+
+[cursor]
+style = { shape = "Block", blinking = "Never" }
+
+[keyboard]
+bindings = [
+  { key = "F11", action = "ToggleMaximized" },
+  { key = "F11", mods = "Control", action = "ToggleFullscreen" },
+]
+
+[env]
+TERM = "xterm-256color"
