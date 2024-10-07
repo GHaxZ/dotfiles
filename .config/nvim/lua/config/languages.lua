@@ -116,7 +116,7 @@ return {
 	},
 	{
 		name = "json",
-		filetypes = { "json", "jsonc" },
+		filetypes = { "json" },
 		treesitter = { "json" },
 		formatter = "prettier",
 	},

@@ -16,27 +16,27 @@ CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
 print_color() {
-  local color="$1"
-  local message="$2"
-  echo -e "${color}${message}${NC}"
+    local color="$1"
+    local message="$2"
+    echo -e "${color}${message}${NC}"
 }
 
 print_error() {
-  local message="$1"
-  echo -e "${RED}${message}${NC}" >&2
+    local message="$1"
+    echo -e "${RED}${message}${NC}" >&2
 }
 
 # Exit the program with a message and exit code 1
 exit_error() {
-  local message="$1"
-  print_error "${message}"
-  exit 1
+    local message="$1"
+    print_error "${message}"
+    exit 1
 }
 
 #########################################################
 # Constant values (probably don't need to change those) #
 #########################################################
-PROGRAMS="git stow alacritty fastfetch neovim tmux zsh bat eza zoxide"
+PROGRAMS="git stow alacritty wezterm fastfetch neovim tmux zsh bat eza zoxide"
 
 ##################
 # Startup checks #
@@ -44,7 +44,7 @@ PROGRAMS="git stow alacritty fastfetch neovim tmux zsh bat eza zoxide"
 
 # Check if script is run as root
 if [ "$(id -u)" != "0" ]; then
-  exit_error "This script must be run as root (sudo)."
+    exit_error "This script must be run as root (sudo)."
 fi
 
 #################################
@@ -76,17 +76,17 @@ print_color $CYAN "--- Getting the dotfiles ---"
 
 # Check if git was installed successfully
 if ! command -v git > /dev/null; then
-  exit_error "\"git\" command not found, the script failed to install it previously."
+    exit_error "\"git\" command not found, the script failed to install it previously."
 fi
 
 # Check if stow was installed successfully
 if ! command -v stow > /dev/null; then
-  exit_error "\"stow\" command not found, the script failed to install it previously."
+    exit_error "\"stow\" command not found, the script failed to install it previously."
 fi
 
 # Check if ~/dotfiles directory exists
 if [ -d ~/dotfiles ]; then
-  exit_error "\"~/dotfiles\" directory already exists."
+    exit_error "\"~/dotfiles\" directory already exists."
 fi
 
 # Clone the repository
@@ -109,10 +109,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 print_color $CYAN "--- Setting up tmux ---"
 
 print_color $GREEN "Setting up tpm ..."
-if git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm; then 
-  tmux source ~/.config/tmux/tmux.conf
+if git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm; then
+    tmux source ~/.config/tmux/tmux.conf
 else
-  print_error "Failed setting up tpm."
+    print_error "Failed setting up tpm."
 fi
 
 ####################
@@ -121,19 +121,19 @@ fi
 print_color $CYAN "--- Setting up spicetify ---"
 
 if command -v spicetify > /dev/null; then
-  # Check for flatpak spotify install, in which case we need to change some permissions
-  if [ -d "/var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/" ]; then
-    chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
-    chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
-  fi
+    # Check for flatpak spotify install, in which case we need to change some permissions
+    if [ -d "/var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/" ]; then
+        chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
+        chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
+    fi
 
-  if ! spicetify backup apply; then
-    print_error "Failed setting up spicetify."
+    if ! spicetify backup apply; then
+        print_error "Failed setting up spicetify."
+        print_error "The spicetify setup can vary vastly depending on how you installed Spotify."
+        print_error "Check out the official guide to fix your issues."
+    fi
+else
+    print_error "\"spicetify\" command not found, the script failed to install it previously."
     print_error "The spicetify setup can vary vastly depending on how you installed Spotify."
     print_error "Check out the official guide to fix your issues."
-  fi
-else
-  print_error "\"spicetify\" command not found, the script failed to install it previously."
-  print_error "The spicetify setup can vary vastly depending on how you installed Spotify."
-  print_error "Check out the official guide to fix your issues."
 fi
