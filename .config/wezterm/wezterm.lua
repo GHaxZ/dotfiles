@@ -34,8 +34,24 @@ config.default_cursor_style = "SteadyBlock"
 -- Disable annoying bell sound
 config.audible_bell = "Disabled"
 
+-- Variable to track maximized state
+local is_maximized = false
+
 -- Custom keyboard shortcuts
 config.keys = {
+	{
+		key = "F11",
+		mods = "",
+		action = wezterm.action_callback(function(window, pane)
+			if is_maximized then
+				window:restore()
+				is_maximized = false
+			else
+				window:maximize()
+				is_maximized = true
+			end
+		end),
+	},
 	{
 		key = "F11",
 		mods = "CTRL",
