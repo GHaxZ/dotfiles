@@ -37,9 +37,9 @@ return {
 				-- Check for special configurations in the languages list
 				for _, lang in ipairs(languages) do
 					if lang.name == server_name then
-						if lang.config then
+						if lang.lsp_config then
 							-- Merge the special configuration if it exists
-							server_config = vim.tbl_deep_extend("force", server_config, lang.config)
+							server_config = vim.tbl_deep_extend("force", server_config, lang.lsp_config)
 						end
 					end
 				end
