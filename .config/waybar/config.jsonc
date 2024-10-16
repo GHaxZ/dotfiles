@@ -1,0 +1,63 @@
+{
+  "layer": "top",
+  "position": "top",
+  "mode": "dock",
+  "margin-left": 5,
+  "margin-right": 5,
+  "margin-top": 5,
+  "margin-bottom": 0,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "reload_style_on_change": true,
+  "modules-left": [
+    "custom/spacer-1",
+    "hyprland/workspaces"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "pulseaudio"
+  ],
+  "hyprland/window": {
+    "format": "<span weight='bold'>{class}</span>",
+    "max-length": 120,
+    "icon": false
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": ""
+    }
+  },
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle", // Mute on click
+    "format": "<span size='13000' foreground='#89b4fa'>{icon}  </span>",
+    "format-muted": "<span size='14000' foreground='#89b4fa'>  </span>",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "",
+      "headset": "󰋋",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "tooltip": false,
+    "on-update": "waybar-pulseaudio-update" // Update on change
+  },
+  "custom/spacer-1": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/spacer-2": {
+    "format": "  ",
+    "tooltip": false
+  },
+  "custom/spacer-3": {
+    "format": "   ",
+    "tooltip": false
+  }
+}
