@@ -8,7 +8,7 @@
 
 #### _Configurations for my terminal development workflow:_
 
-- ##### [alacritty](https://github.com/alacritty/alacritty) - My terminal emulator of choice
+- ##### [kitty](https://github.com/kovidgoyal/kitty) - My terminal emulator of choice
 - ##### [neovim](https://github.com/neovim/neovim) - A code editor and (almost) IDE
 - ##### [tmux](https://github.com/tmux/tmux) - A [terminal multiplexer](https://en.wikipedia.org/wiki/Terminal_multiplexer)
 
