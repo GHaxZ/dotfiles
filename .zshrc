@@ -4,8 +4,6 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
-# ZSH_THEME="robbyrussell"
-
 plugins=(
   git
   zsh-syntax-highlighting
@@ -20,7 +18,9 @@ ZSH_WEB_SEARCH_ENGINES=(
     crates "https://crates.io/search?q="
     brave "https://search.brave.com/search?q="
 )
+
 source $ZSH/oh-my-zsh.sh
+
 ###########
 # Aliases #
 ###########
@@ -123,6 +123,16 @@ up() {
 	cd $d
 }
 
+################
+# PATH exports #
+################
+export PATH="$HOME/go/bin:$PATH"
+
+export PATH="$HOME/scripts:$PATH"
+
+export PATH="$HOME/.spicetify:$PATH"
+
+
 ##########################
 # Exported env variables #
 ##########################
@@ -178,11 +188,6 @@ if [[ -z "$NO_TMUX" ]]; then
   fi
 fi
 
-# Run a neofetch
-neofetch
-
-# Add cargo to path
-. "$HOME/.cargo/env"
 
 # Add homebrew to path
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -193,16 +198,16 @@ eval "$(zoxide init zsh)"
 # Initialize the prompt
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/custom/zen_rose-pine.json)"
 
+# Source cargo
+. "$HOME/.cargo/env"
+
+# Source Nix
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
+
+# Run a neofetch
+neofetch
+
 ###############
 # Other stuff #
 ###############
 
-export PATH=$PATH:/home/ghaxz/.spicetify
-
-export PATH="$HOME/go/bin:$PATH"
-
-export PATH="$HOME/scripts:$PATH"
-
-export PATH="$HOME/.spicetify:$PATH"
-
-eval $(thefuck --alias)
