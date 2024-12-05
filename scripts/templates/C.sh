@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Function to calculate relative paths
 get_relative_path() {
     local from=$(realpath "$1")
     local to=$(realpath "$2")
@@ -13,23 +12,30 @@ get_relative_path() {
     echo "${to#"$from"/}"
 }
 
-# Prompt for project name, ensuring valid input or abort
 read -r -p "Enter project name: " PROJECT_NAME
 if [[ -z "$PROJECT_NAME" ]]; then
     echo "Error: Project name cannot be empty."
     exit 1
 fi
 
-# Store absolute paths by default
 PROJECT_DIR="$(pwd)/$PROJECT_NAME"
 SRC_DIR="$PROJECT_DIR/src"
 TARGET_DIR="$PROJECT_DIR/target"
 
-# Create folder structure
-echo "Creating folder structure ..."
-mkdir -p "$SRC_DIR" "$TARGET_DIR" || exit 1
+echo "Creating project structure ..."
+mkdir "$PROJECT_DIR" || exit 1
+mkdir "$SRC_DIR" || exit 1
 
-# Generate build script
+cat > "$SRC_DIR/main.c" << EOF
+#include <stdio.h>
+
+int main(int argc, char **argv) {
+  printf("Hello, world!\n");
+
+  return 0;
+}
+EOF
+
 echo "Generating scripts ..."
 cat > "$PROJECT_DIR/build.sh" << EOF
 #!/bin/sh
@@ -66,12 +72,8 @@ fi
 echo "Build completed successfully. Executable: \$TARGET_DIR/\$BINARY"
 EOF
 
-# Make build script executable
-chmod +x "$PROJECT_DIR/build.sh"
-
-# Initialize Git repository and generate .gitignore
 echo "Initializing git ..."
-git init "$PROJECT_DIR" > /dev/null
+git init "$PROJECT_DIR"
 
 cat > "$PROJECT_DIR/.gitignore" << EOF
 $(get_relative_path "$PROJECT_DIR" "$TARGET_DIR")/
