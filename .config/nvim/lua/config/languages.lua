@@ -147,8 +147,8 @@ return {
 		name = "python",
 		filetypes = { "python" },
 		treesitter = { "python" },
-		lsp = "ruff",
-		formatter = "ruff",
+		lsp = "pyright",
+		formatter = "black",
 		linter = "ruff",
 	},
 	{
