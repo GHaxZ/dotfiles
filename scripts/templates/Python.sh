@@ -60,6 +60,8 @@ fi
 python3 \$MAIN_FILE
 EOF
 
+chmod +x "$PROJECT_DIR/run.sh"
+
 cat > "$PROJECT_DIR/pip.sh" << EOF
 #!/bin/sh
 
@@ -77,6 +79,8 @@ echo ""
 
 \$COMMAND
 EOF
+
+chmod +x "$PROJECT_DIR/pip.sh"
 
 echo "Initializing git ..."
 git init "$PROJECT_DIR"

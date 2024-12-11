@@ -72,6 +72,8 @@ fi
 echo "Build completed successfully. Executable: \$TARGET_DIR/\$BINARY"
 EOF
 
+chmod +x "$PROJECT_DIR/build.sh"
+
 echo "Initializing git ..."
 git init "$PROJECT_DIR"
 
