@@ -2,7 +2,7 @@
 let mapleader = " "
 
 " Use system clipboard
-set clipboard+=unnamed
+set clipboard=unnamedplus
 
 " Remap jk to ESC
 inoremap jk <Esc>
@@ -27,3 +27,7 @@ nmap <Leader>tp :action PreviousTab<CR>
 
 " Rename element
 nmap <Leader>rn :action RenameElement<CR>
+
+" Comment selection
+nmap <Leader>gc :action CommentByLineComment<CR>
+vmap <Leader>gc :action CommentByLineComment<CR>
