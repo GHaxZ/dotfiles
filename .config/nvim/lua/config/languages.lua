@@ -223,4 +223,10 @@ return {
 		lsp = "yamlls",
 		formatter = "prettier",
 	},
+	{
+		name = "zig",
+		filetypes = { "zig" },
+		treesitter = { "zig" },
+		lsp = "zls",
+	},
 }
