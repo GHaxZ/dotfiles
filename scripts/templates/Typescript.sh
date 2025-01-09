@@ -22,7 +22,7 @@ cd "$PROJECT_DIR" || exit 1
 npm init -y
 
 echo "Installing TypeScript ..."
-npm install --save-dev typescript
+npm install --save-dev typescript @types/node
 
 echo "Generating npm scripts ..."
 TMP_PACKAGE_JSON=$(mktemp)
