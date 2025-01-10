@@ -57,7 +57,7 @@ if [ -z "\$VIRTUAL_ENV" ]; then
   source "$(get_relative_path "$PROJECT_DIR" "$VENV_DIR")/bin/activate"
 fi
 
-python3 \$MAIN_FILE
+python3 \$MAIN_FILE \$@
 EOF
 
 chmod +x "$PROJECT_DIR/run.sh"
