@@ -2,34 +2,92 @@
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "source": "suse",
+    "height": 10,
     "padding": {
-      "top": 2
-    }
+      "top": 4,
+      "left": 4,
+      "right": 6,
+    },
+  },
+  "display": {
+    "separator": " -> ",
   },
   "modules": [
-    "title",
-    "separator",
+    {
+      "type": "custom",
+      "format": "",
+    },
+    {
+      "type": "title",
+    },
+    {
+      "type": "custom",
+      "format": "",
+    },
     {
       "type": "os",
-      "format": "{3} {12}"
+      "key": " OS",
+      "keyColor": "yellow",
     },
-    "kernel",
-    "uptime",
-    "packages",
-    "shell",
-    "de",
-    "wm",
-    "terminal",
-    "cpu",
+    {
+      "type": "kernel",
+      "key": "  ├",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "packages",
+      "key": "  ├󰏖",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "shell",
+      "key": "  └",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "de",
+      "key": " DE",
+      "keyColor": "blue",
+    },
+    {
+      "type": "wm",
+      "key": "  ├",
+      "keyColor": "blue",
+    },
+    {
+      "type": "terminal",
+      "key": "  └",
+      "keyColor": "blue",
+    },
+    {
+      "type": "host",
+      "key": " PC",
+      "keyColor": "green",
+    },
+    {
+      "type": "cpu",
+      "key": "  ├",
+      "keyColor": "green",
+    },
     {
       "type": "gpu",
-      "key": "GPU"
+      "key": "  ├󰢮",
+      "keyColor": "green",
     },
     {
       "type": "memory",
-      "format": "{/1}{-}{/}{/2}{-}{/}{} / {}"
+      "key": "  ├",
+      "keyColor": "green",
+    },
+    {
+      "type": "uptime",
+      "key": "  └󰅐",
+      "keyColor": "green",
     },
     "break",
-    "colors"
-  ]
+    {
+      "type": "custom",
+      "format": " \u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m  \u001b[38m  \u001b[39m",
+    },
+  ],
 }
