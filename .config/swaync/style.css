@@ -1,0 +1,142 @@
+@define-color bg rgba(31, 31, 40, 0.9);
+@define-color border rgba(230, 195, 132, 1.0);
+@define-color text rgba(220, 215, 186, 1.0);
+
+/* Global settings for all elements */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: @text;
+}
+
+/* --------------------- */
+/* Control Center Layout */
+/* --------------------- */
+
+/* Main container */
+.control-center {
+  background-color: @bg;
+  border: 2px solid @border;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 25px;
+}
+
+/* ----------------------- */
+/* Notification Appearance */
+/* ----------------------- */
+
+/* Notification container */
+.notification {
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: @border;
+}
+
+/* Content area within notifications */
+.notification-content {
+  background: @bg;
+  padding: 5px;
+}
+
+/* Close button styling */
+.close-button {
+  background: @bg;
+  color: @border;
+  border-radius: 100%;
+  margin: 5px;
+  transition: all 0.15s ease-in-out;
+}
+
+.close-button:hover {
+  box-shadow: none;
+  background: @border;
+  color: @bg;
+  border: none;
+}
+
+/* Action button in notifications */
+.notification-action {
+  color: @bg;
+  background: @text;
+}
+
+/* Additional text styles in notifications */
+.summary {
+  padding-top: 7px;
+  font-size: 13px;
+  color: @border;
+}
+.time {
+  font-size: 11px;
+  color: @border;
+  margin-right: 40px;
+}
+.body {
+  font-size: 12px;
+  color: @border;
+}
+
+/* ---------------------- */
+/* Lists & Overlays */
+/* ---------------------- */
+
+.control-center-list,
+.floating-notifications {
+  background: transparent;
+}
+.control-center-list-placeholder {
+  opacity: 0.5;
+}
+.blank-window {
+  background: alpha(black, 0.1);
+}
+
+/* ---------------------------- */
+/* Widget Titles & Labels */
+/* ---------------------------- */
+
+/* Title container */
+.widget {
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.widget-title > button {
+  padding: 10px;
+  background: @bg;
+  border: @border solid 2px;
+  text-shadow: none;
+  box-shadow: none;
+  transition: all 0.15s ease-in-out;
+}
+
+.widget-title > button:hover {
+  background: @border;
+}
+
+/* Do Not Disturb container */
+.widget-dnd > button {
+}
+
+/* ------------------- */
+/* MPRIS Widget Styles */
+/* ------------------- */
+
+.widget-mpris {
+  border-radius: 10px;
+}
+
+.widget-mpris-album-art {
+  border-radius: 10px;
+}
+
+.widget-mpris-player {
+  padding: 20px;
+}
+
+.widget-mpris > box > button {
+  background-color: @border;
+  color: @bg;
+}

@@ -1,0 +1,83 @@
+* {
+  min-height: 0;
+  min-width: 0;
+  /* We have to use "NFP" font because icons are not centered otherwise, no idea why */
+  font-family: "JetBrainsMono NFP";
+  font-size: 16px;
+  font-weight: 700;
+}
+
+window#waybar {
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background-color: transparent;
+}
+
+#workspaces button {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  background-color: rgba(230, 195, 132, 1);
+  color: rgba(22, 22, 29, 1);
+}
+
+#workspaces button:hover {
+  color: rgba(230, 195, 132, 1);
+  background-color: rgba(22, 22, 29, 1);
+}
+
+#workspaces button.active {
+  color: rgba(230, 195, 132, 1);
+  background-color: rgba(22, 22, 29, 1);
+}
+
+#workspaces button.urgent {
+  background-color: rgba(230, 195, 132, 1);
+  color: rgba(195, 64, 67, 1);
+}
+
+#clock,
+#pulseaudio,
+#custom-logo,
+#custom-power,
+#custom-spotify,
+#custom-notification,
+#cpu,
+#tray,
+#memory,
+#window,
+#mpris,
+#network {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 6px;
+  background-color: rgba(230, 195, 132, 1);
+  color: rgba(22, 22, 29, 1);
+}
+
+#mpris.playing {
+  color: rgba(22, 22, 29, 1);
+}
+
+#mpris.paused {
+  color: rgba(22, 22, 29, 1);
+}
+
+#custom-sep {
+  padding: 0px;
+  color: rgba(22, 22, 29, 1);
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#custom-power {
+  color: rgba(195, 64, 67, 1);
+}
+
+tooltip {
+  background-color: rgba(22, 22, 29, 1);
+  border: 2px solid rgba(230, 195, 132, 1);
+  color: rgba(220, 215, 186, 1);
+}
