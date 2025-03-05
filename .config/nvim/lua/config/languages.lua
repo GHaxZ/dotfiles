@@ -188,6 +188,12 @@ return {
 		lsp = "svelte",
 	},
 	{
+		name = "vue",
+		filetypes = { "vue" },
+		treesitter = { "vue" },
+		lsp = "volar",
+	},
+	{
 		name = "tailwind",
 		filetypes = {
 			"ejs",
