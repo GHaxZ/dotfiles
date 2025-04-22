@@ -74,9 +74,6 @@ fi
 
 COMMAND="pip \$@"
 
-echo "\$COMMAND"
-echo ""
-
 \$COMMAND
 EOF
 
