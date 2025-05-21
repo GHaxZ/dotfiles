@@ -55,6 +55,12 @@
       "keyColor": "blue",
     },
     {
+      "type": "command",
+      "text": "$EDITOR --version | head -1",
+      "key": "  ├",
+      "keyColor": "blue",
+    },
+    {
       "type": "terminal",
       "key": "  └",
       "keyColor": "blue",
