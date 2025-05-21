@@ -5,58 +5,62 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 		"nvim-lua/plenary.nvim",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
 	},
-
 	config = function()
-		-- Import required modules
+		-- modules
 		local lspconfig = require("lspconfig")
 		local mason_lspconfig = require("mason-lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-		-- Load the languages configuration
+		-- load your languages table
 		local languages = require("config.languages")
 
-		-- Define capabilities for LSP clients
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		-- build a list of LSP names that Mason should install
+		local to_install = {}
+		for _, lang in ipairs(languages) do
+			if lang.lsp and not lang.lsp_no_mason then
+				table.insert(to_install, lang.lsp)
+			end
+		end
 
-		-- Change the Diagnostic symbols in the sign column (gutter)
+		-- Mason setup: install servers, auto-enable them
+		mason_lspconfig.setup({
+			ensure_installed = to_install,
+			automatic_enable = true,
+		})
+
+		-- build capabilities for all servers
+		local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+		-- diagnostic signs
 		local signs = { Error = " ", Warn = " ", Hint = " 󰠠", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		-- Setup LSP servers dynamically from the languages list
-		mason_lspconfig.setup_handlers({
-			function(server_name)
-				-- Default setup for each server
-				local server_config = {
-					capabilities = capabilities,
-				}
+		-- loop through every language entry and call setup()
+		for _, lang in ipairs(languages) do
+			-- choose the right server name: explicit .lsp or fallback to .name
+			local server = lang.lsp or lang.name
 
-				-- Check for special configurations in the languages list
-				for _, lang in ipairs(languages) do
-					if lang.name == server_name then
-						if lang.lsp_config then
-							-- Merge the special configuration if it exists
-							server_config = vim.tbl_deep_extend("force", server_config, lang.lsp_config)
-						end
-					end
-				end
+			-- base opts with capabilities
+			local opts = vim.tbl_deep_extend("force", { capabilities = capabilities }, lang.lsp_config or {})
 
-				lspconfig[server_name].setup(server_config)
-			end,
-		})
+			-- setup the server
+			lspconfig[server].setup(opts)
+		end
 
-		-- Set LSP keybinds
-		local keymap = vim.keymap
-
+		-- your LspAttach autocmd + keymaps
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
 				local opts = { buffer = ev.buf, silent = true }
 				vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
 
+				local keymap = vim.keymap
 				keymap.set(
 					"n",
 					"gr",
@@ -115,7 +119,7 @@ return {
 					"n",
 					"K",
 					vim.lsp.buf.hover,
-					vim.tbl_extend("force", { desc = "Show documentation for what is under cursor" }, opts)
+					vim.tbl_extend("force", { desc = "Show documentation under cursor" }, opts)
 				)
 				keymap.set(
 					"n",
