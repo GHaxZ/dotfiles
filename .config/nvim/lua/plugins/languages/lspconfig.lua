@@ -44,13 +44,13 @@ return {
 		-- loop through every language entry and call setup()
 		for _, lang in ipairs(languages) do
 			-- choose the right server name: explicit .lsp or fallback to .name
-			local server = lang.lsp or lang.name
+			if lang.lsp then
+				-- base opts with capabilities
+				local opts = vim.tbl_deep_extend("force", { capabilities = capabilities }, lang.lsp_config or {})
 
-			-- base opts with capabilities
-			local opts = vim.tbl_deep_extend("force", { capabilities = capabilities }, lang.lsp_config or {})
-
-			-- setup the server
-			lspconfig[server].setup(opts)
+				-- setup the server
+				lspconfig[lang.lsp].setup(opts)
+			end
 		end
 
 		-- your LspAttach autocmd + keymaps
