@@ -1,0 +1,87 @@
+[
+  // File Tree keybinds
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious"
+    }
+  },
+
+  // Code completion keybinds
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious"
+    }
+  },
+
+  // Dock keybinds
+  {
+    "context": "(Dock || Terminal || Editor) && !menu",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-space c": "workspace::NewTerminal",
+      "ctrl-space z": "workspace::ToggleRightDock",
+      "ctrl-space x": "workspace::CloseActiveDock",
+      "space e": "workspace::ToggleLeftDock",
+      "space f f": "file_finder::Toggle",
+      "space f s": "workspace::NewSearch"
+    }
+  },
+
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space n h": "buffer_search::Dismiss",
+      "space t n": "pane::ActivateNextItem",
+      "space t p": "pane::ActivatePreviousItem",
+      "space t x": "pane::CloseActiveItem",
+      "s r": ["vim::PushChangeSurrounds", {}],
+      "s d": ["vim::PushDeleteSurrounds", {}]
+    }
+  },
+
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      "s a": ["vim::PushAddSurrounds", {}]
+    }
+  },
+
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "space e": null,
+      "space f f": null,
+      "space f s": null
+    }
+  },
+
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-space n": "pane::ActivateNextItem",
+      "ctrl-space p": "pane::ActivatePreviousItem",
+      "ctrl-space &": "pane::CloseActiveItem",
+      "ctrl-space c": "workspace::NewTerminal"
+    }
+  },
+
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::SwitchToNormalMode"
+    }
+  }
+]

@@ -1,0 +1,119 @@
+{
+  // Terminal settings
+  "terminal": {
+    "button": false,
+    "dock": "right",
+    "env": {
+      "NO_TMUX": "1"
+    },
+    "font_size": 16,
+    "default_width": 800
+  },
+
+  // Font settings
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "ui_font_size": 18,
+  "ui_font_weight": 400,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_weight": 500,
+  "buffer_font_size": 18,
+
+  // General behaviour
+  "vim_mode": true,
+  "cursor_blink": false,
+  "close_on_file_delete": true,
+  "vertical_scroll_margin": 10,
+  "use_smartcase_search": true,
+  "base_keymap": "JetBrains",
+
+  // Extension settings
+  "auto_install_extensions": {
+    // Themes
+    "kanagawa-themes": true,
+    "jetbrains-new-ui-icons": true,
+
+    // Languages
+    "html": true,
+    "toml": true,
+    "dockerfile": true,
+    "java": true,
+    "make": true,
+    "svelte": true,
+    "xml": true,
+    "lua": true,
+    "csharp": true,
+    "docker-compose": true,
+    "nix": true,
+    "basher": true,
+    "env": true,
+    "gleam": true
+  },
+
+  // UI settings
+  "theme": "Kanagawa Wave",
+  "icon_theme": "JetBrains New UI Icons (Dark)",
+
+  "relative_line_numbers": true,
+
+  "hide_mouse": "on_typing",
+
+  "scrollbar": {
+    "show": "never"
+  },
+
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+    "activate_on_close": "left_neighbour",
+    "show_diagnostics": "errors"
+  },
+
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false,
+    "agent_review": false
+  },
+
+  "title_bar": {
+    "show_user_picture": false,
+    "show_branch_icon": true
+  },
+
+  "agent": {
+    "version": "2",
+    "enabled": false,
+    "button": false
+  },
+
+  "collaboration_panel": {
+    "button": false
+  },
+
+  "outline_panel": {
+    "button": false
+  },
+
+  "project_panel": {
+    "button": false
+  },
+
+  "search": {
+    "button": false
+  },
+
+  "notification_panel": {
+    "button": false
+  },
+
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  }
+}
