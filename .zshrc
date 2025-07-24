@@ -4,6 +4,16 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
+# Get current git branch, used for prompt
+git_branch() {
+  git rev-parse --abbrev-ref HEAD 2>/dev/null | sed -e 's/^/ /; s/$//' || true
+}
+
+# Set our prompt, the line break makes this multiline and adds an empty line before the prompt
+PROMPT='
+%F{cyan}%~%f%F{grey}$(git_branch)%f
+%F{green}$%f '
+
 plugins=(
   git
   zsh-syntax-highlighting
@@ -28,14 +38,18 @@ source $ZSH/oh-my-zsh.sh
 # Aliases for modified commands
 alias cp="cp -i"
 alias mv="mv -i"
-alias cat="bat"
+if type "bat" > /dev/null; then
+  alias cat="bat"
+fi
 alias c="clear"
 alias x="exit"
 
 # Program aliases
 alias neofetch="fastfetch"
 alias v="nvim"
-alias ls="eza --color=always --git --icons=always"
+if type "eza" > /dev/null; then
+  alias ls="eza --color=always --git --icons=always"
+fi
 alias open="xdg-open 2>/dev/null"
 
 # File aliases
@@ -44,9 +58,6 @@ alias zshrc="nvim $HOME/.zshrc"
 
 # Machine specific aliases
 alias update="sudo $HOME/scripts/update.sh"
-alias notes="cd ~/notes/ && nvim ./index.norg"
-alias chad="java -jar $HOME/JChad/JChad-client.jar"
-alias raspi="ssh ghaxz@192.168.178.75"
 
 #############
 # Functions #
@@ -194,16 +205,19 @@ fi
 
 
 # Add homebrew to path
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # Initialize zoxide
-eval "$(zoxide init zsh)"
-
-# Initialize the prompt
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/custom/zen_rose-pine.json)"
+if type "zoxide" > /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
 # Source cargo
-. "$HOME/.cargo/env"
+if [ -f "$HOME/.cargo/env" ]; then
+  . "$HOME/.cargo/env"
+fi
 
 # Source Nix
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
