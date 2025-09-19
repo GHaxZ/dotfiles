@@ -60,15 +60,6 @@
   },
 
   {
-    "context": "Editor && vim_mode == insert",
-    "bindings": {
-      "space e": null,
-      "space f f": null,
-      "space f s": null
-    }
-  },
-
-  {
     "context": "Terminal",
     "bindings": {
       "ctrl-space n": "pane::ActivateNextItem",
@@ -79,8 +70,9 @@
   },
 
   {
-    "context": "Editor && vim_mode == insert",
+    "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
+      "space": null,
       "j k": "vim::SwitchToNormalMode"
     }
   }

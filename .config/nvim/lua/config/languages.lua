@@ -22,6 +22,12 @@ return {
 	-- All of these values can be omitted or set to nil
 
 	{
+		name = "angular",
+		filetypes = { "angular" },
+		treesitter = { "angular" },
+		lsp = "angularls",
+	},
+	{
 		name = "bash",
 		filetypes = { "bash", "sh" },
 		treesitter = { "bash" },
@@ -203,6 +209,7 @@ return {
 			"typescriptreact",
 			"vue",
 			"svelte",
+			"angular",
 		},
 		lsp = "tailwindcss",
 	},
@@ -221,6 +228,11 @@ return {
 		name = "vimdoc",
 		filetypes = { "vimdoc" },
 		treesitter = { "vimdoc" },
+	},
+	{
+		name = "wit",
+		filetypes = { "wit" },
+		treesitter = { "wit" },
 	},
 	{
 		name = "yaml",
