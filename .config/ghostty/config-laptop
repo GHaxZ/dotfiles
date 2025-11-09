@@ -1,3 +1,5 @@
+# This should be sourced from 'config' using 'config-file = "config-laptop"'
+
 font-family = JetbrainsMono Nerd Font
 font-style = Semibold
 font-size = 18

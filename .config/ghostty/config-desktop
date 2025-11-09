@@ -1,3 +1,5 @@
+# This should be sourced from 'config' using 'config-file = "config-desktop"'
+
 font-family = Jetbrains Mono
 font-style = Semibold
 font-size = 12
