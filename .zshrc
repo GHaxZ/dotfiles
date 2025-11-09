@@ -210,9 +210,7 @@ if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
 fi
 
 # Initialize zoxide
-if type "zoxide" > /dev/null; then
   eval "$(zoxide init zsh)"
-fi
 
 # Source cargo
 if [ -f "$HOME/.cargo/env" ]; then

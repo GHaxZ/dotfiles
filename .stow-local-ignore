@@ -22,5 +22,7 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
+.DS_Store
+
 # Custom ignores
 setup.sh     # Ignore setup script

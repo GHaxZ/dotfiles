@@ -1,0 +1,12 @@
+font-family = JetbrainsMono Nerd Font
+font-style = Semibold
+font-size = 18
+
+theme = Kanagawa Wave
+cursor-style = block
+keybind = f11=toggle_maximize
+keybind = ctrl+f11=toggle_fullscreen
+keybind = ctrl+enter=unbind
+keybind = ctrl+j=unbind
+confirm-close-surface = false
+app-notifications = no-clipboard-copy
