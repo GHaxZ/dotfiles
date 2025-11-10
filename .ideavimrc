@@ -4,6 +4,9 @@ let mapleader = " "
 " Use system clipboard
 set clipboard=unnamedplus
 
+" Enable relative line numbers
+set relativenumber
+
 " Remap jk to ESC
 inoremap jk <Esc>
 
@@ -15,6 +18,9 @@ nmap <Leader>fs :action FindInPath<CR>
 
 " View quick-fixes
 nmap <Leader>ca :action ShowIntentionActions<CR>
+
+" Display error diagnostics
+nmap <Leader>d :action ShowErrorDescription<CR>
 
 " Close current tab
 nmap <Leader>tx :action CloseEditor<CR>
