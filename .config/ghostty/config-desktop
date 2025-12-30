@@ -3,6 +3,7 @@
 font-family = Jetbrains Mono
 font-style = Semibold
 font-size = 12
+font-feature = -calt, -liga, -dlig
 
 theme = Kanagawa Wave
 cursor-style = block

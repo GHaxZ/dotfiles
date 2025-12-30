@@ -3,6 +3,7 @@
 font-family = JetbrainsMono Nerd Font
 font-style = Semibold
 font-size = 18
+font-feature = -calt, -liga, -dlig
 
 theme = Kanagawa Wave
 cursor-style = block
