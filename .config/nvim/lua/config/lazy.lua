@@ -21,9 +21,7 @@ require("lazy").setup({
 	spec = {
 		-- Import your plugins
 		{ import = "plugins" },
-		{ import = "plugins.languages" },
-		{ import = "plugins.ui" },
-		{ import = "plugins.navigation" },
+		{ import = "plugins.lsp" },
 	},
 
 	-- Automatically check for plugin updates

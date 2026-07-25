@@ -110,6 +110,7 @@
 
   "agent": {
     "dock": "right",
+    "version": "2",
     "enabled": false,
     "button": false
   },

@@ -230,3 +230,5 @@ neofetch
 export WASMTIME_HOME="$HOME/.wasmtime"
 
 export PATH="$WASMTIME_HOME/bin:$PATH"
+
+export PATH=/home/ghaxz/.opencode/bin:$PATH

@@ -39,7 +39,7 @@ opt.termguicolors = true
 opt.background = "dark"
 
 -- Allways show sign column (signs are error indicators and so on), so all text starts on the same column
-opt.signcolumn = "yes"
+opt.signcolumn = "yes:1"
 
 -- Set backspace behaviour
 opt.backspace = "indent,eol,start"
@@ -50,3 +50,6 @@ opt.clipboard:append("unnamedplus")
 -- Define window splitting behaviour
 opt.splitright = true -- Split vertical windows to the right
 opt.splitbelow = true -- Split horizontal windows to the bottom
+
+-- Smoother scrolling
+opt.smoothscroll = true
