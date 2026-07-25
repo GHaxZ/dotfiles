@@ -44,9 +44,33 @@ return {
 		words = { enabled = true },
 	},
 	keys = {
-		{ "<leader>ff", function() Snacks.picker.files() end, desc = "Find files in cwd" },
-		{ "<leader>fr", function() Snacks.picker.recent() end, desc = "Find recent files" },
-		{ "<leader>fs", function() Snacks.picker.grep() end, desc = "Find string in cwd" },
-		{ "<leader>sm", function() Snacks.zen.zoom() end, desc = "Maximize/minimize split" },
+		{
+			"<leader>ff",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Find files in cwd",
+		},
+		{
+			"<leader>fr",
+			function()
+				Snacks.picker.recent()
+			end,
+			desc = "Find recent files",
+		},
+		{
+			"<leader>fs",
+			function()
+				Snacks.picker.grep()
+			end,
+			desc = "Find string in cwd",
+		},
+		{
+			"<leader>sm",
+			function()
+				Snacks.zen.zoom()
+			end,
+			desc = "Maximize/minimize split",
+		},
 	},
 }
