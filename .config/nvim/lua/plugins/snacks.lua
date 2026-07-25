@@ -37,10 +37,12 @@ return {
 		},
 		input = { enabled = true },
 		indent = { enabled = true },
-		notifier = { enabled = true, timeout = 3000 },
+		notifier = { enabled = false }, -- fidget.nvim handles notifications + LSP progress
 		picker = { enabled = true },
 		quickfile = { enabled = true },
-		zen = { enabled = true },
+		scroll = { enabled = true },
+		statuscolumn = { enabled = true },
+		zen = { enabled = true, backdrop = false },
 		words = { enabled = true },
 	},
 	keys = {

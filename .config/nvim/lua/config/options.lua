@@ -51,6 +51,5 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true -- Split vertical windows to the right
 opt.splitbelow = true -- Split horizontal windows to the bottom
 
--- Neovim 0.12 options
-opt.pumborder = "rounded"  -- Border around completion popup menu
-opt.smoothscroll = true -- Smoother scrolling
+-- Smoother scrolling
+opt.smoothscroll = true

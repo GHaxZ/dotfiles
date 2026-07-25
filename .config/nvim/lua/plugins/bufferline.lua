@@ -6,8 +6,10 @@ return {
 		options = {
 			mode = "tabs",
 			indicator = { style = "none" },
+			separator_style = "thin",
 			show_buffer_close_icons = false,
 			diagnostics = "nvim_lsp",
+			color_icons = true,
 		},
 	},
 }
