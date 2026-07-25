@@ -11,7 +11,7 @@ return {
 	--   lsp = "bashls", -- Lsp for this language, installed through mason.nvim, or can also be locally installed
 	--   lsp_no_mason = false, -- Specify whether this lsp should be installed through mason.nvim
 	--   lsp_config = { -- Custom lsp settings can also be applied
-	--      setting = {
+	--      settings = {
 	--        ...
 	--      }
 	--   }
@@ -106,7 +106,7 @@ return {
 	},
 	{
 		name = "javascript",
-		filetypes = { "js", "jsx" },
+		filetypes = { "javascript", "javascriptreact" },
 		treesitter = { "javascript" },
 		lsp = "ts_ls",
 		formatter = "prettier",
@@ -114,7 +114,7 @@ return {
 	},
 	{
 		name = "typescript",
-		filetypes = { "ts", "tsx" },
+		filetypes = { "typescript", "typescriptreact" },
 		treesitter = { "typescript" },
 		lsp = "ts_ls",
 		formatter = "prettier",
@@ -122,14 +122,14 @@ return {
 	},
 	{
 		name = "json",
-		filetypes = { "json", "json" },
+		filetypes = { "json" },
 		treesitter = { "json" },
 		formatter = "prettier",
 	},
 	{
 		name = "jsonc",
 		filetypes = { "jsonc" },
-		treesitter = { "jsonc" },
+		treesitter = { "json" }, -- jsonc uses json parser
 		formatter = "prettier",
 	},
 	{
@@ -151,7 +151,7 @@ return {
 	},
 	{
 		name = "markdown",
-		filetypes = { "markdown", "md" },
+		filetypes = { "markdown" },
 		treesitter = { "markdown", "markdown_inline" },
 		formatter = "prettier",
 	},
@@ -177,7 +177,7 @@ return {
 		treesitter = { "rust" },
 		lsp = "rust_analyzer",
 		lsp_config = {
-			setting = {
+			settings = {
 				checkOnSave = {
 					command = "clippy",
 				},
@@ -236,7 +236,7 @@ return {
 	},
 	{
 		name = "yaml",
-		filetypes = { "yaml", "yml" },
+		filetypes = { "yaml" },
 		treesitter = { "yaml" },
 		lsp = "yamlls",
 		formatter = "prettier",

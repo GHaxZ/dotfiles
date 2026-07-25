@@ -11,6 +11,13 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear highlights" })
 -- Don't put removed characters into clipboard registry
 keymap.set("n", "x", '"_x')
 
+-- LSP hover on K (replaces default :Man fallback)
+keymap.set("n", "K", function()
+	if #vim.lsp.get_clients({ bufnr = 0 }) > 0 then
+		vim.lsp.buf.hover()
+	end
+end, { silent = true, desc = "Show documentation under cursor" })
+
 -- Window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })

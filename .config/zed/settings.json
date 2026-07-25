@@ -1,5 +1,9 @@
 {
   // Terminal settings
+  "git_panel": {
+    "dock": "left"
+  },
+  "disable_ai": false,
   "terminal": {
     "button": false,
     "dock": "right",
@@ -86,20 +90,24 @@
   },
 
   "agent": {
+    "dock": "right",
     "version": "2",
     "enabled": false,
     "button": false
   },
 
   "collaboration_panel": {
+    "dock": "left",
     "button": false
   },
 
   "outline_panel": {
+    "dock": "left",
     "button": false
   },
 
   "project_panel": {
+    "dock": "left",
     "button": false
   },
 

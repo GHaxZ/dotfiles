@@ -178,8 +178,9 @@ fi
 # Source Nix
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi
 
+# Run a neofetch
+neofetch
+
 ###############
 # Other stuff #
 ###############
-
-neofetch
