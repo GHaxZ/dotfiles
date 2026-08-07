@@ -40,7 +40,6 @@ return {
 		notifier = { enabled = false }, -- fidget.nvim handles notifications + LSP progress
 		picker = { enabled = true },
 		quickfile = { enabled = true },
-		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
 		zen = { enabled = true, backdrop = false },
 		words = { enabled = true },

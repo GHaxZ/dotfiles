@@ -50,6 +50,3 @@ opt.clipboard:append("unnamedplus")
 -- Define window splitting behaviour
 opt.splitright = true -- Split vertical windows to the right
 opt.splitbelow = true -- Split horizontal windows to the bottom
-
--- Smoother scrolling
-opt.smoothscroll = true

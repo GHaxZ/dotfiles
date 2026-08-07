@@ -14,13 +14,21 @@ end
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	lazy = false, -- plugin does not support lazy loading
+	lazy = false,
 	build = ":TSUpdate",
 	config = function()
-		-- Install parsers (async, no-op if already installed)
-		require("nvim-treesitter").install(get_parsers())
+		require("nvim-treesitter.configs").setup({
+			-- Official declarative parser installation:
+			ensure_installed = get_parsers(),
 
-		-- Enable highlighting/folding/indent per filetype via built-in Neovim API
+			-- Do not block startup while installing
+			sync_install = false,
+
+			-- Automatically install parser on buffer enter if missing
+			auto_install = true,
+		})
+
+		-- Built-in Neovim autocmd for highlighting and indent
 		vim.api.nvim_create_autocmd("FileType", {
 			group = vim.api.nvim_create_augroup("TreesitterSetup", {}),
 			callback = function(ev)
