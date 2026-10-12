@@ -15,7 +15,6 @@
 #### _Shell configurations:_
 
 - ##### [zsh](https://github.com/zsh-users/zsh) - My UNIX shell of choice
-- ##### [oh-my-posh](https://github.com/jandedobbeleer/oh-my-posh) - A cross-shell prompt
 - ##### [fastfetch](https://github.com/fastfetch-cli/fastfetch) - A pretty (and fast) system info fetching tool, so I can get imaginary internet points
 
 #### _And other cool tools like:_
