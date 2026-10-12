@@ -6,13 +6,19 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # Get current git branch, used for prompt
 git_branch() {
-  git rev-parse --abbrev-ref HEAD 2>/dev/null | sed -e 's/^/ /; s/$//' || true
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    local ref
+    ref=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+    if [[ -n "$ref" ]]; then
+      printf "%%F{250}⎇ %s%%f" "$ref"
+    fi
+  fi
 }
 
 # Set our prompt, the line break makes this multiline and adds an empty line before the prompt
 PROMPT='
-%F{cyan}%~%f%F{grey}$(git_branch)%f
-%F{green}$%f '
+%F{cyan}%~%f $(git_branch)
+%F{yellow}❱%f '
 
 plugins=(
   git
@@ -191,9 +197,9 @@ session_name="main"
 
 # If the "NO_TMUX" variable is not set
 if [[ -z "$NO_TMUX" ]]; then
-  tmux has-session -t $session_name 2>/dev/null
+  tmux has-session -t "$session_name" 2>/dev/null
   if [[ $? -ne 0 ]]; then
-    TMUX='' tmux new-session -d -s "$session_name"
+    TMUX='' tmux new-session -d -s "$session_name" -c "$HOME"
   fi
 
   if [[ -z "$TMUX" ]]; then

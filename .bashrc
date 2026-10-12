@@ -8,13 +8,19 @@
 
 # Get current git branch, used for prompt
 git_branch() {
-    git rev-parse --abbrev-ref HEAD 2>/dev/null | sed -e 's/^/ /; s/$//' || true
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        local ref
+        ref=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+        if [[ -n "$ref" ]]; then
+            printf '\001\e[38;5;250m\002⎇ %s\001\e[0m\002' "$ref"
+        fi
+    fi
 }
 
 # Print a blank line before each prompt
 PROMPT_COMMAND='echo'
 
-PS1=$'\e[36m\w\e[0m\e[90m$(git_branch)\e[0m\n\e[32m$\e[0m '
+PS1='\[\e[36m\]\w\[\e[0m\] $(git_branch)\n\[\e[33m\]❱\[\e[0m\] '
 
 # Aliases for modified commands
 alias cp="cp -i"
@@ -127,10 +133,19 @@ shopt -s checkwinsize
 # Startup commands #
 ####################
 
-# Attach to "main" tmux session
-if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
-    # Attempt to attach to an existing session named "main"
-    tmux attach -t main || tmux new-session -s main
+session_name="main"
+
+# Only run in interactive shells and when NO_TMUX is not set
+if [[ $- == *i* ]] && [[ -z "$NO_TMUX" ]]; then
+    if ! tmux has-session -t "$session_name" 2>/dev/null; then
+        TMUX='' tmux new-session -d -s "$session_name" -c "$HOME"
+    fi
+
+    if [[ -z "$TMUX" ]]; then
+        tmux attach -t "$session_name"
+    else
+        tmux switch-client -t "$session_name"
+    fi
 fi
 
 ################
